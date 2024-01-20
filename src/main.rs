@@ -1,9 +1,9 @@
-mod greeting {
-    pub fn greet(name: &str) {
-        println!("Hello, {}!", name);
-    }
-}
+mod greeting;
 
-fn main() {
-    greeting::greet("Chennai Geeks");
+use greeting::greet;
+
+#[tokio::main]
+async fn main() {
+    tokio::time::sleep(std::time::Duration::from_secs(5)).await;
+    println!("{}", greet("Chennai Geeks"));
 }
